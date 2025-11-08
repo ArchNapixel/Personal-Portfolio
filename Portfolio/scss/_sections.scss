@@ -1,0 +1,291 @@
+/**
+ * Section Styles - About, Projects, Skills, Contact sections
+ */
+
+// ==================== ABOUT SECTION ====================
+.about {
+    padding: $spacing-2xl $spacing-md;
+    background: $secondary-bg;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+
+    .section-title {
+        font-size: clamp(2rem, 5vw, 3rem);
+        text-align: center;
+        margin-bottom: $spacing-2xl;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            @include gradient-horizontal($accent-gold, $accent-purple);
+            border-radius: $radius-sm;
+        }
+    }
+
+    .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+
+        p {
+            font-size: 1.1rem;
+            color: $text-secondary;
+            margin-bottom: $spacing-md;
+            line-height: 1.8;
+        }
+    }
+}
+
+// ==================== PROJECTS SECTION ====================
+.projects {
+    padding: $spacing-2xl $spacing-md;
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: $spacing-lg;
+        margin-top: $spacing-2xl;
+
+        @include respond-to('md') {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.project-card {
+    background: $secondary-bg;
+    border: 1px solid $border-color;
+    border-radius: $radius-lg;
+    padding: $spacing-lg;
+    @include smooth-transition;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 3px;
+        @include gradient-horizontal($accent-gold, $accent-purple);
+        @include smooth-transition;
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+        border-color: $accent-purple;
+        @include glow(rgba($accent-purple, 0.2), 40px);
+
+        &::before {
+            left: 0;
+        }
+    }
+
+    .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: $spacing-sm;
+
+        h3 {
+            font-size: 1.5rem;
+            color: $accent-gold;
+        }
+    }
+
+    .project-year {
+        background: $accent-purple;
+        color: $primary-bg;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .project-description {
+        color: $text-secondary;
+        margin-bottom: $spacing-md;
+        line-height: 1.6;
+    }
+
+    .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-bottom: $spacing-md;
+    }
+
+    .tech-tag {
+        background: rgba($accent-gold, 0.1);
+        color: $accent-gold;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        border: 1px solid rgba($accent-gold, 0.3);
+    }
+
+    .project-links {
+        display: flex;
+        gap: $spacing-sm;
+    }
+
+    .project-link {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: $accent-purple;
+        color: $primary-bg;
+        text-decoration: none;
+        border-radius: $radius-sm;
+        font-weight: 600;
+        @include smooth-transition;
+        flex: 1;
+        text-align: center;
+
+        &:hover {
+            background: $accent-gold;
+            transform: translateX(5px);
+        }
+    }
+}
+
+// ==================== SKILLS SECTION ====================
+.skills {
+    padding: $spacing-2xl $spacing-md;
+    background: $secondary-bg;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: $spacing-lg;
+        margin-top: $spacing-2xl;
+
+        @include respond-to('md') {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.skill-item {
+    background: $primary-bg;
+    padding: $spacing-md;
+    border-radius: $radius-md;
+    border: 1px solid $border-color;
+    @include smooth-transition;
+
+    &:hover {
+        border-color: $accent-gold;
+        background: rgba($accent-gold, 0.05);
+    }
+
+    h3 {
+        color: $accent-gold;
+        margin-bottom: $spacing-sm;
+        font-size: 1.2rem;
+    }
+
+    .skill-bar {
+        width: 100%;
+        height: 8px;
+        background: $border-color;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-progress {
+        height: 100%;
+        @include gradient-horizontal($accent-gold, $accent-purple);
+        border-radius: 10px;
+        animation: progressBar 1.5s ease-out forwards;
+    }
+
+    .skill-percentage {
+        display: block;
+        text-align: right;
+        color: $accent-purple;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+}
+
+// ==================== CONTACT SECTION ====================
+.contact {
+    padding: $spacing-2xl $spacing-md;
+
+    .contact-intro {
+        text-align: center;
+        font-size: 1.1rem;
+        color: $text-secondary;
+        max-width: 600px;
+        margin: 0 auto $spacing-2xl;
+    }
+
+    .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: $spacing-lg;
+        margin-top: $spacing-2xl;
+
+        @include respond-to('md') {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.contact-card {
+    background: $secondary-bg;
+    border: 1px solid $border-color;
+    padding: $spacing-lg;
+    border-radius: $radius-lg;
+    text-decoration: none;
+    text-align: center;
+    @include smooth-transition;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: $accent-gold;
+        @include glow(rgba($accent-gold, 0.2), 30px);
+    }
+
+    .contact-icon {
+        font-size: 3rem;
+        margin-bottom: $spacing-sm;
+        display: block;
+    }
+
+    h3 {
+        color: $accent-gold;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    p {
+        color: $text-secondary;
+        word-break: break-all;
+    }
+}
+
+// ==================== FOOTER ====================
+.footer {
+    background: $secondary-bg;
+    border-top: 1px solid $border-color;
+    padding: $spacing-lg $spacing-md;
+    text-align: center;
+    color: $text-secondary;
+
+    p {
+        margin: 0.5rem 0;
+    }
+}

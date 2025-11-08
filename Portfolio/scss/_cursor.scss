@@ -1,0 +1,51 @@
+/**
+ * Cursor Styles - Custom cursor effects and animations
+ */
+
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at 30% 30%, rgba($accent-gold, 0.8), rgba($accent-gold, 0.3), transparent);
+    border: 2px solid $accent-gold;
+    border-radius: $radius-full;
+    pointer-events: none;
+    z-index: $z-cursor;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: lighten;
+    opacity: 1;
+    @include smooth-transition(opacity);
+    @include double-glow(rgba($accent-gold, 0.6), rgba($accent-gold, 0.4), 15px, 8px);
+
+    &.cursor-hover {
+        width: 35px;
+        height: 35px;
+        background: radial-gradient(circle at 30% 30%, rgba($accent-gold, 1), rgba($accent-purple, 0.6), transparent);
+        @include double-glow(rgba($accent-gold, 0.8), rgba($accent-purple, 0.6), 30px, 40px);
+        border-width: 2.5px;
+    }
+}
+
+.cursor-trail {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle at 30% 30%, rgba($accent-purple, 0.8), rgba($accent-purple, 0.3), transparent);
+    border: 1.5px solid $accent-purple;
+    border-radius: $radius-full;
+    pointer-events: none;
+    z-index: $z-cursor-trail;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: lighten;
+    opacity: 0.9;
+    @include smooth-transition(opacity);
+    @include glow(rgba($accent-purple, 0.6), 10px);
+
+    &.cursor-trail-hover {
+        width: 18px;
+        height: 18px;
+        background: radial-gradient(circle at 30% 30%, rgba($accent-purple, 1), rgba($accent-gold, 0.6), transparent);
+        @include double-glow(rgba($accent-purple, 0.8), rgba($accent-gold, 0.6), 20px, 25px);
+        border-width: 2px;
+    }
+}

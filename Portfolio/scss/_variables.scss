@@ -1,0 +1,58 @@
+/**
+ * Variables - Global color schemes, sizes, and constants
+ */
+
+// ==================== COLORS ====================
+$primary-bg: #0a0a0a;
+$secondary-bg: #1a1a1a;
+$accent-gold: #d4af37;
+$accent-purple: #8b5cf6;
+$accent-purple-dark: #6d28d9;
+$text-primary: #ffffff;
+$text-secondary: #b0b0b0;
+$border-color: #333333;
+
+// ==================== TYPOGRAPHY ====================
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// ==================== SPACING ====================
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-2xl: 4rem;
+
+// ==================== BREAKPOINTS ====================
+$breakpoint-xs: 320px;
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+$breakpoint-2xl: 1440px;
+
+// ==================== TRANSITIONS ====================
+$transition-default: 0.3s ease;
+$transition-slow: 0.6s ease;
+$transition-fast: 0.15s ease;
+
+// ==================== SHADOWS ====================
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 10px 25px rgba(0, 0, 0, 0.2);
+$shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+// ==================== BORDER RADIUS ====================
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 10px;
+$radius-full: 50%;
+
+// ==================== Z-INDEX ====================
+$z-navbar: 100;
+$z-hero-canvas: 1;
+$z-hero-content: 10;
+$z-hero-accent: 0;
+$z-cursor: 9999;
+$z-cursor-trail: 9998;

@@ -1,0 +1,162 @@
+/**
+ * Mixins - Reusable code blocks for common patterns
+ */
+
+// ==================== RESPONSIVE DESIGN ====================
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == 'xs' {
+        @media (max-width: $breakpoint-xs) { @content; }
+    } @else if $breakpoint == 'sm' {
+        @media (max-width: $breakpoint-sm) { @content; }
+    } @else if $breakpoint == 'md' {
+        @media (max-width: $breakpoint-md) { @content; }
+    } @else if $breakpoint == 'lg' {
+        @media (max-width: $breakpoint-lg) { @content; }
+    } @else if $breakpoint == 'xl' {
+        @media (max-width: $breakpoint-xl) { @content; }
+    }
+}
+
+// ==================== FLEXBOX ====================
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// ==================== GRADIENTS ====================
+@mixin gradient-text($from, $to) {
+    background: linear-gradient(135deg, $from, $to);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@mixin gradient-background($from, $to) {
+    background: linear-gradient(135deg, $from, $to);
+}
+
+@mixin gradient-horizontal($from, $to) {
+    background: linear-gradient(90deg, $from, $to);
+}
+
+// ==================== SHADOWS & GLOWS ====================
+@mixin glow($color, $size: 10px) {
+    box-shadow: 0 0 #{$size} $color;
+}
+
+@mixin glow-inset($color, $size: 10px) {
+    box-shadow: inset 0 0 #{$size} $color;
+}
+
+@mixin double-glow($color1, $color2, $size1: 10px, $size2: 15px) {
+    box-shadow: 0 0 #{$size1} $color1, 0 0 #{$size2} $color2;
+}
+
+// ==================== TEXT EFFECTS ====================
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin text-clamp($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// ==================== POSITIONING ====================
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin absolute-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// ==================== TRANSFORMS ====================
+@mixin transform-origin-center {
+    transform-origin: center;
+}
+
+@mixin smooth-transition($properties: all) {
+    transition: $properties $transition-default;
+}
+
+@mixin smooth-transition-slow($properties: all) {
+    transition: $properties $transition-slow;
+}
+
+// ==================== ANIMATIONS ====================
+@mixin hover-scale($scale: 1.05) {
+    transition: transform $transition-default;
+    
+    &:hover {
+        transform: scale($scale);
+    }
+}
+
+@mixin hover-lift($distance: 5px) {
+    transition: transform $transition-default;
+    
+    &:hover {
+        transform: translateY(-#{$distance});
+    }
+}
+
+@mixin hover-glow($color) {
+    transition: box-shadow $transition-default;
+    
+    &:hover {
+        @include glow($color, 20px);
+    }
+}
+
+// ==================== ACCESSIBILITY ====================
+@mixin focus-ring($color: $accent-gold) {
+    &:focus {
+        outline: 2px solid $color;
+        outline-offset: 2px;
+    }
+}
+
+// ==================== UTILITIES ====================
+@mixin container-max-width($width: 1200px) {
+    max-width: $width;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+}
+
+@mixin button-base {
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-radius: $radius-md;
+    cursor: pointer;
+    font-weight: 600;
+    @include smooth-transition;
+    
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}

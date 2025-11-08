@@ -1,0 +1,72 @@
+/**
+ * Navbar Styles
+ */
+
+.navbar {
+    background: linear-gradient(to bottom, $secondary-bg, transparent);
+    padding: $spacing-sm 0;
+    position: sticky;
+    top: 0;
+    z-index: $z-navbar;
+    border-bottom: 1px solid $border-color;
+    backdrop-filter: blur(10px);
+
+    .container {
+        @include flex-between;
+    }
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    @include gradient-text($accent-gold, $accent-purple);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: $spacing-lg;
+
+    a {
+        color: $text-secondary;
+        text-decoration: none;
+        @include smooth-transition;
+        font-weight: 500;
+
+        &:hover {
+            color: $accent-gold;
+        }
+
+        &.active {
+            color: $accent-gold;
+        }
+    }
+
+    @include respond-to('md') {
+        gap: $spacing-sm;
+        font-size: 0.95rem;
+    }
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+
+    span {
+        width: 25px;
+        height: 3px;
+        background: $accent-gold;
+        margin: 5px 0;
+        border-radius: $radius-sm;
+        @include smooth-transition;
+    }
+
+    &.active span {
+        background: $accent-purple;
+    }
+
+    @include respond-to('md') {
+        display: flex;
+    }
+}

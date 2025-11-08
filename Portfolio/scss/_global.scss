@@ -1,0 +1,94 @@
+/**
+ * Global Styles - Reset and base styles
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-family;
+    background-color: $primary-bg;
+    color: $text-primary;
+    line-height: $line-height-base;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+.container {
+    @include container-max-width(1200px);
+}
+
+// ==================== SECTION TITLE ====================
+.section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        @include gradient-horizontal($accent-gold, $accent-purple);
+        border-radius: $radius-sm;
+    }
+}
+
+// ==================== HEADINGS ====================
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+// ==================== LINKS ====================
+a {
+    color: inherit;
+    text-decoration: none;
+    @include smooth-transition;
+
+    &:hover {
+        color: $accent-gold;
+    }
+}
+
+// ==================== SCROLLBAR ====================
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $primary-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $accent-gold;
+    border-radius: $radius-md;
+
+    &:hover {
+        background: $accent-purple;
+    }
+}
+
+// ==================== SELECTION ====================
+::selection {
+    background: $accent-gold;
+    color: $primary-bg;
+}
+
+::-moz-selection {
+    background: $accent-gold;
+    color: $primary-bg;
+}
